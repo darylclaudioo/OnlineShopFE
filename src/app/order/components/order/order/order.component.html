@@ -1,0 +1,120 @@
+<div class="container-fluid mt-2">
+   <div class="row">
+     <div class="col-lg-12">
+       <div class="card shadow-lg order-card">
+         <div class="card-header order-card-header">
+           <h1>Daftar Order</h1>
+           <div class="button-group">
+             <button type="button" class="btn btn-generate-report" (click)="generatePdf()">Generate Report PDF</button>
+             <button type="button" class="btn btn-create-order" (click)="createOrder(formOrder)">Tambah Order</button>
+           </div>
+         </div>
+         <div class="card-body order-card-body">
+           <div class="table-responsive">
+             <table mat-table [dataSource]="listOrders" class="mat-elevation-z8 order-table">
+               <!-- No -->
+               <ng-container matColumnDef="no">
+                 <th mat-header-cell *matHeaderCellDef> No </th>
+                 <td mat-cell *matCellDef="let order; let i = index"> {{getRowIndex(i)}} </td>
+               </ng-container>
+ 
+               <!-- Order ID Column -->
+               <ng-container matColumnDef="id">
+                 <th mat-header-cell *matHeaderCellDef> Order ID </th>
+                 <td mat-cell *matCellDef="let order"> {{order.orderId}} </td>
+               </ng-container>
+ 
+               <!-- Order Code -->
+               <ng-container matColumnDef="code">
+                 <th mat-header-cell *matHeaderCellDef> Order Code </th>
+                 <td mat-cell *matCellDef="let order"> {{order.orderCode}} </td>
+               </ng-container>
+ 
+               <!-- Order Date -->
+               <ng-container matColumnDef="orderDate">
+                 <th mat-header-cell *matHeaderCellDef> Order Date </th>
+                 <td mat-cell *matCellDef="let order"> {{order.orderDate}} </td>
+               </ng-container>
+ 
+               <!-- Customer Name -->
+               <ng-container matColumnDef="customerName">
+                 <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+                 <td mat-cell *matCellDef="let order"> {{order.customer.customerName}} </td>
+               </ng-container>
+ 
+               <!-- Item Name -->
+               <ng-container matColumnDef="itemName">
+                 <th mat-header-cell *matHeaderCellDef> Item Name </th>
+                 <td mat-cell *matCellDef="let order"> {{order.item.itemName}} </td>
+               </ng-container>
+ 
+               <!-- Price -->
+               <ng-container matColumnDef="price">
+                 <th mat-header-cell *matHeaderCellDef> Price </th>
+                 <td mat-cell *matCellDef="let order"> {{order.item.price | currency:'Rp. ':'symbol':'1.2-2'}} </td>
+               </ng-container>
+ 
+               <!-- Quantity -->
+               <ng-container matColumnDef="quantity">
+                 <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                 <td mat-cell *matCellDef="let order"> {{order.quantity}} </td>
+               </ng-container>
+ 
+               <!-- Total Price -->
+               <ng-container matColumnDef="total">
+                 <th mat-header-cell *matHeaderCellDef> Total Price </th>
+                 <td mat-cell *matCellDef="let order"> {{order.totalPrice | currency:'Rp. ':'symbol':'1.2-2'}} </td>
+               </ng-container>
+ 
+               <!-- Actions Column -->
+               <ng-container matColumnDef="actions">
+                 <th mat-header-cell *matHeaderCellDef> Actions </th>
+                 <td mat-cell *matCellDef="let order">
+                   <div class="action-buttons">
+                     <button class="btn btn-sm btn-edit" (click)="updateOrder(formOrder, order.orderId)">
+                       <mat-icon>edit</mat-icon>
+                     </button>
+                     <button class="btn btn-sm btn-delete" (click)="deleteOrder(order.orderId)">
+                       <mat-icon>delete</mat-icon>
+                     </button>
+                     <button class="btn btn-sm btn-view" (click)="showDetail(detailOrder, order.orderId)">
+                       <mat-icon>visibility</mat-icon>
+                     </button>
+                   </div>
+                 </td>
+               </ng-container>
+ 
+               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+             </table>
+           </div>
+           <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[8, 15, 50]"
+             (page)="pageChanged($event)" aria-label="Select page">
+           </mat-paginator>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
+ <ng-template #formOrder let-modal>
+   <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Create Order</h4>
+     <!-- close button -->
+     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+   </div>
+   <div class="modal-body">
+     <app-form-order [orderId]="modelId" (afterSave)="modal.close();reload()"></app-form-order>
+   </div>
+ </ng-template>
+ 
+ <ng-template #detailOrder let-modal>
+   <div class="modal-header">
+     <!-- close button -->
+     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+   </div>
+   <div class="modal-body">
+     <app-detail-order [orderId]="modelId"></app-detail-order>
+   </div>
+ </ng-template>
+ 

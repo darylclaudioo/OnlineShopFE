@@ -1,0 +1,72 @@
+<form>
+      <div class="form-group row">
+        <!-- Customer Name -->
+        <label class="col-md-4 col-form-label required" for="customerName">Customer Name</label>
+        <div class="col-md-8">
+          <input
+            [(ngModel)]="formModel.customerName"
+            name="customerName"
+            type="text"
+            class="form-control"
+            id="customerName"
+            required
+            placeholder="Enter customer name"
+          />
+        </div>
+    
+        <!-- Customer Address -->
+        <label class="col-md-4 col-form-label required mt-3" for="customerAddress">Customer Address</label>
+        <div class="col-md-8 mt-1">
+          <input
+            [(ngModel)]="formModel.customerAddress"
+            name="customerAddress"
+            type="text"
+            class="form-control"
+            id="customerAddress"
+            required
+            placeholder="Enter customer address"
+          />
+        </div>
+    
+        <!-- Customer Phone -->
+        <label class="col-md-4 col-form-label required mt-3" for="customerPhone">Customer Phone</label>
+        <div class="col-md-8 mt-1">
+          <input
+            [(ngModel)]="formModel.customerPhone"
+            name="customerPhone"
+            type="text"
+            class="form-control"
+            id="customerPhone"
+            required
+            placeholder="Enter customer phone"
+          />
+        </div>
+    
+        <!-- PIC img-->
+        <div class="col-md-12 mt-3 text-center">
+          <img *ngIf="formModel.pic" [src]="formModel.pic" alt="Image Preview" class="img-thumbnail" width="200" />
+        </div>
+    
+        <!-- File input for image -->
+        <label class="col-md-4 col-form-label required mt-3" for="pic">Picture</label>
+        <div class="col-md-8 mt-1">
+          <input (change)="onFileSelected($event)" type="file" class="form-control-file" id="pic" required />
+        </div>
+    
+        <!-- Customer Status -->
+        <label class="col-md-4 col-form-label required mt-3" for="isActive">Status</label>
+        <div class="col-md-8 mt-1">
+          <select [(ngModel)]="formModel.isActive" name="isActive" class="form-control" id="isActive" required>
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
+          </select>
+        </div>
+      </div>
+    
+      <div class="form-group row mt-4">
+        <div class="col-md-8 offset-md-4">
+          <button type="button" class="btn btn-primary btn-lg" (click)="save()">Save</button>
+        </div>
+      </div>
+    </form>
+    

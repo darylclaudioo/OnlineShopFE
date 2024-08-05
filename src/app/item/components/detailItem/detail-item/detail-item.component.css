@@ -1,0 +1,52 @@
+.container {
+    padding: 20px;
+  }
+  
+  mat-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  mat-card-content {
+    padding: 16px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .item-details {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .item-details td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .item-details td:first-child {
+    font-weight: bold;
+    color: #555;
+    width: 150px;
+  }
+  
+  .item-details td:last-child {
+    color: #777;
+  }
+  
+  @media (max-width: 768px) {
+    .item-details td {
+      display: block;
+      width: 100%;
+    }
+  
+    .item-details td:first-child {
+      margin-top: 8px;
+    }
+  }
+  

@@ -1,0 +1,63 @@
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #212121; 
+  color: white; 
+
+  .mat-icon {
+    color: white; 
+  }
+}
+
+.toolbar-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: white; 
+}
+
+.toolbar-title {
+  margin-left: auto; 
+}
+
+.spacer {
+  flex: 1 1 auto; 
+}
+
+
+.sidenav-container {
+  height: 100vh;
+  background-color: #ffffff; 
+}
+
+.mat-sidenav {
+  width: 250px;
+  background-color: #c9c8c8; 
+
+  .mat-nav-list {
+    a.mat-list-item {
+      padding: 16px 24px;
+      font-size: 1rem;
+      color: white; 
+
+      &:hover {
+        background-color: #616161; 
+        color: white; 
+      }
+
+      &.active {
+        background-color: #757575; 
+        font-weight: bold;
+        color: white; 
+      }
+    }
+  }
+}
+
+.mat-sidenav-content {
+  padding: 16px;
+  background-color: #ffffff; 
+  color: #212121; 
+  height: 100%;
+}

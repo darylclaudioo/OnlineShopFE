@@ -1,0 +1,40 @@
+<div class="container">
+   <mat-card>
+     <mat-card-content>
+       <h2>Detail Item</h2>
+       <table class="item-details">
+         <tbody>
+           <tr>
+             <td><strong>ID</strong></td>
+             <td>{{ detailItem?.itemId }}</td>
+           </tr>
+           <tr>
+             <td><strong>Name</strong></td>
+             <td>{{ detailItem?.itemName }}</td>
+           </tr>
+           <tr>
+             <td><strong>Code</strong></td>
+             <td>{{ detailItem?.itemCode }}</td>
+           </tr>
+           <tr>
+             <td><strong>Stock</strong></td>
+             <td>{{ detailItem?.stock }}</td>
+           </tr>
+           <tr>
+             <td><strong>Price</strong></td>
+             <td>{{ detailItem?.price | currency: 'Rp. ' : 'symbol' : '1.2-2' }}</td>
+           </tr>
+           <tr>
+             <td><strong>Status</strong></td>
+             <td>{{ detailItem?.isAvailable ? 'Available' : 'Not Available' }}</td>
+           </tr>
+           <tr>
+             <td><strong>Last Re-Stock</strong></td>
+             <td>{{ detailItem?.lastReStock ? detailItem.lastReStock : '-' }}</td>
+           </tr>
+         </tbody>
+       </table>
+     </mat-card-content>
+   </mat-card>
+ </div>
+ 

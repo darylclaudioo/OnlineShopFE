@@ -1,0 +1,44 @@
+<div class="container">
+   <mat-card>
+     <mat-card-content>
+       <h2>Detail Customer</h2>
+       <table class="customer-details">
+         <tbody>
+           <tr>
+             <td><strong>ID</strong></td>
+             <td>{{ detailCustomer?.customerId }}</td>
+           </tr>
+           <tr>
+             <td><strong>Name</strong></td>
+             <td>{{ detailCustomer?.customerName }}</td>
+           </tr>
+           <tr>
+             <td><strong>Address</strong></td>
+             <td>{{ detailCustomer?.customerAddress }}</td>
+           </tr>
+           <tr>
+             <td><strong>Code</strong></td>
+             <td>{{ detailCustomer?.customerCode }}</td>
+           </tr>
+           <tr>
+             <td><strong>Phone</strong></td>
+             <td>{{ detailCustomer?.customerPhone }}</td>
+           </tr>
+           <tr>
+             <td><strong>Status</strong></td>
+             <td>{{ detailCustomer?.isActive ? 'Active' : 'Inactive' }}</td>
+           </tr>
+           <tr>
+             <td><strong>Last Order Date</strong></td>
+             <td>{{ detailCustomer?.lastOrderDate ? detailCustomer.lastOrderDate : '-' }}</td>
+           </tr>
+           <tr>
+             <td><strong>PIC</strong></td>
+             <td>{{ detailCustomer?.pic }}</td>
+           </tr>
+         </tbody>
+       </table>
+     </mat-card-content>
+   </mat-card>
+ </div>
+ 

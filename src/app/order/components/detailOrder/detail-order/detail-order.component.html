@@ -1,0 +1,44 @@
+<div class="container">
+   <mat-card>
+     <mat-card-content>
+       <h2>Detail Order</h2>
+       <table class="order-details">
+         <tbody>
+           <tr>
+             <td><strong>ID</strong></td>
+             <td>{{ detailOrder?.orderId }}</td>
+           </tr>
+           <tr>
+             <td><strong>Order Code</strong></td>
+             <td>{{ detailOrder?.orderCode }}</td>
+           </tr>
+           <tr>
+             <td><strong>Order Date</strong></td>
+             <td>{{ detailOrder?.orderDate }}</td>
+           </tr>
+           <tr>
+             <td><strong>Customer Name</strong></td>
+             <td>{{ detailOrder?.customer.customerName }}</td>
+           </tr>
+           <tr>
+             <td><strong>Item Name</strong></td>
+             <td>{{ detailOrder?.item.itemName }}</td>
+           </tr>
+           <tr>
+             <td><strong>Item Price</strong></td>
+             <td>{{ detailOrder?.item.price | currency: 'Rp. ' : 'symbol' : '1.2-2' }}</td>
+           </tr>
+           <tr>
+             <td><strong>Quantity</strong></td>
+             <td>{{ detailOrder?.quantity }}</td>
+           </tr>
+           <tr>
+             <td><strong>Total Price</strong></td>
+             <td>{{ detailOrder?.totalPrice | currency: 'Rp. ' : 'symbol' : '1.2-2' }}</td>
+           </tr>
+         </tbody>
+       </table>
+     </mat-card-content>
+   </mat-card>
+ </div>
+ 
